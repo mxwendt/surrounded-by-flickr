@@ -17,4 +17,8 @@ plane.position.x = 0;
 plane.position.y = 0;
 plane.position.z = -1000;
 
-eyeOrigin.add(plane);
+var root = new THREE.Object3D();
+
+root.add(plane);
+
+eyeOrigin.add(root);
