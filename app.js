@@ -1,5 +1,15 @@
 var images = [
-
+  "1.jpg",
+  "2.jpg",
+  "3.jpg",
+  "4.jpg",
+  "5.jpg",
+  "6.jpg",
+  "7.jpg",
+  "8.jpg",
+  "9.jpg",
+  "10.jpg",
+  "11.jpg"
 ];
 
 // Argon setup
@@ -10,26 +20,22 @@ var three = THREE.Bootstrap(options);
 var eyeOrigin = three.argon.objectFromEntity(context.eyeOrigin);
 var root = new THREE.Object3D();
 
-// addPlane(-1000);
-// addPlane(1000);
-
 var vector = new THREE.Vector3(0, 0, 0);
 
-for (var i = 0; i < 20; i++) {
-  addPlane();
+for (var i = 0; i < images.length; i++) {
+  addPlane(images[i]);
 }
-// addRandomImage(-1000);
-// addRandomImage(1000);
 
 eyeOrigin.add(root);
 
-function addPlane() {
+function addPlane(url) {
   var element = document.createElement('div');
   element.className = 'plane';
 
   var ratio = Math.random();
   element.style.width = ratio * 160 + 'px';
   element.style.height = ratio * 90 + 'px';
+  element.style.backgroundImage = 'url(images/' + url + ')';
 
   var object = new THREE.CSS3DObject(element);
   object.matrixAutoUpdate = false;
@@ -49,17 +55,6 @@ function addPlane() {
   root.add(object);
 
   object.updateMatrix();
-}
-
-// Creates a plane with an image to place in space
-function addRandomImage(z) {
-  var geometry = new THREE.PlaneGeometry(16, 9, 1, 1);
-  var material = new THREE.MeshBasicMaterial({color: 0xffff00, side: THREE.DoubleSide});
-  var plane = new THREE.Mesh(geometry, material);
-  plane.position.x = 0;
-  plane.position.y = 0;
-  plane.position.z = z;
-  root.add(plane);
 }
 
 // Returns a random integer between min (included) and max (excluded)
