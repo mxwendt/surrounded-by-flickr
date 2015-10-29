@@ -13,6 +13,8 @@ var root = new THREE.Object3D();
 // addPlane(-1000);
 // addPlane(1000);
 
+var vector = new THREE.Vector3(0, 0, 0);
+
 for (var i = 0; i < 20; i++) {
   addPlane();
 }
@@ -22,8 +24,6 @@ for (var i = 0; i < 20; i++) {
 eyeOrigin.add(root);
 
 function addPlane() {
-  var vector = new THREE.Vector3(0, 0, 0);
-
   var element = document.createElement('div');
   element.className = 'plane';
 
@@ -44,7 +44,7 @@ function addPlane() {
 
   root.add(object);
 
-  // object.updateMatrix();
+  object.updateMatrix();
 }
 
 // Creates a plane with an image to place in space
