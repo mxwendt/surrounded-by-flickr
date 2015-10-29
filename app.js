@@ -27,9 +27,9 @@ function addPlane(z) {
   var object = new THREE.CSS3DObject(element);
   object.matrixAutoUpdate = false;
 
-  plane.position.x = 0;
-  plane.position.y = 0;
-  plane.position.z = z;
+  object.position.x = 0;
+  object.position.y = 0;
+  object.position.z = z;
 
   root.add(object);
 
