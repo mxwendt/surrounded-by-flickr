@@ -22,10 +22,6 @@ h1 {
   position: relative;
 }
 
-button {
-  background-color: green;
-}
-
 .searchbox {
   position: absolute;
   padding: 5px;
