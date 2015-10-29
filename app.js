@@ -13,7 +13,7 @@ var root = new THREE.Object3D();
 // addPlane(-1000);
 // addPlane(1000);
 
-for (var i = 0; i < 20.length; i++) {
+for (var i = 0; i < 20; i++) {
   addPlane();
 }
 // addRandomImage(-1000);
