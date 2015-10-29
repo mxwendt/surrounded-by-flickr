@@ -44,9 +44,7 @@ function addPlane(url) {
 
   root.add(object);
 
-  // animate(object);
-
-  object.updateMatrix();
+  animate(object);
 }
 
 function animate(object) {
@@ -68,6 +66,8 @@ function positionImage(object) {
   vector.z = object.position.z * 2 * (-1);
 
   object.lookAt(vector);
+
+  object.updateMatrix();
 }
 
 // Returns a random integer between min (included) and max (excluded)
