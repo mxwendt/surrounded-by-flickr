@@ -1,3 +1,14 @@
 body {
    background-color: rgba(255,255,255,0.7);
 }
+
+.plane {
+  width: 160px;
+  height: 90px;
+  background-color: blue;
+  border: 1px solid red;
+}
+
+button {
+  background-color: green;
+}

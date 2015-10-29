@@ -22,8 +22,6 @@ function addPlane(z) {
   element.className = 'plane';
   // element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
   element.style.backgroundColor = 'rgba(0,127,127,1)';
-  element.style.width = '100px';
-  element.style.height = '100px';
   element.textContent = 'Image';
 
   var object = new THREE.CSS3DObject(element);
