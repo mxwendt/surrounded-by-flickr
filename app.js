@@ -27,6 +27,10 @@ function addPlane() {
   var element = document.createElement('div');
   element.className = 'plane';
 
+  var ratio = Math.random();
+  element.style.width = ratio * 160 + 'px';
+  element.style.height = ratio * 90 + 'px';
+
   var object = new THREE.CSS3DObject(element);
   object.matrixAutoUpdate = false;
 
