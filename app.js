@@ -36,9 +36,9 @@ function addPlane() {
   object.position.y = - ( i * 8 ) + 450;
   object.position.z = 900 * Math.cos( -phi );
 
-  vector.x = -object.position.x * 2;
-  vector.y = -object.position.y;
-  vector.z = -object.position.z * 2;
+  vector.x = object.position.x * 2 * (-1);
+  vector.y = object.position.y * (-1);
+  vector.z = object.position.z * 2 * (-1);
 
   object.lookAt(vector);
 
