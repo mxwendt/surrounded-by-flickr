@@ -29,7 +29,7 @@ for (var i = 0; i < images.length; i++) {
 eyeOrigin.add(root);
 
 function addPlane(url) {
-  var ratio = Math.random();
+  var ratio = Math.random() + 0.5;
 
   var element = document.createElement('div');
   element.className = 'plane';
