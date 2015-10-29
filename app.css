@@ -12,6 +12,11 @@ body {
   box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
 }
 
+#menu {
+  z-index: 9999;
+  position: relative;
+}
+
 button {
   background-color: green;
 }
