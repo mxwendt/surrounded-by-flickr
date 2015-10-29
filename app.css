@@ -6,6 +6,9 @@ body {
   width: 160px;
   height: 90px;
   background-color: blue;
+  background-image: url('images/tear.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 1px solid red;
 }
 
