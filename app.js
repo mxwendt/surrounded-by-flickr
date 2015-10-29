@@ -10,30 +10,41 @@ var three = THREE.Bootstrap(options);
 var eyeOrigin = three.argon.objectFromEntity(context.eyeOrigin);
 var root = new THREE.Object3D();
 
-addPlane(-1000);
-addPlane(1000);
+// addPlane(-1000);
+// addPlane(1000);
+
+for (var i = 0; i < 20.length; i++) {
+  addPlane();
+}
 // addRandomImage(-1000);
 // addRandomImage(1000);
 
 eyeOrigin.add(root);
 
-function addPlane(z) {
+var vector = new THREE.Vector3(0, 0, 0);
+
+function addPlane() {
   var element = document.createElement('div');
   element.className = 'plane';
-  // element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
-  element.style.backgroundColor = 'rgba(0,127,127,1)';
-  element.textContent = 'Image';
 
   var object = new THREE.CSS3DObject(element);
   object.matrixAutoUpdate = false;
 
-  object.position.x = 0;
-  object.position.y = 0;
-  object.position.z = z;
+  var phi = getRandomInt(1, 30) * 0.175 + Math.PI;
+
+  object.position.x = 900 * Math.sin( -phi );
+  object.position.y = - ( i * 8 ) + 450;
+  object.position.z = 900 * Math.cos( -phi );
+
+  vector.x = -target.position.x * 2;
+  vector.y = -target.position.y;
+  vector.z = -target.position.z * 2;
+
+  object.lookAt(vector);
 
   root.add(object);
 
-  object.updateMatrix();
+  // object.updateMatrix();
 }
 
 // Creates a plane with an image to place in space
@@ -45,4 +56,10 @@ function addRandomImage(z) {
   plane.position.y = 0;
   plane.position.z = z;
   root.add(plane);
+}
+
+// Returns a random integer between min (included) and max (excluded)
+// Using Math.round() will give you a non-uniform distribution!
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
