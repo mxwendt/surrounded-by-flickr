@@ -34,22 +34,34 @@ var images = [
   "11.jpg"
 ];
 
-// Argon setup
+// Retrieve the immersive context
 var context = Argon.immersiveContext;
+
+// Initialize Three.js rendering
 var options = THREE.Bootstrap.createArgonOptions(context);
 options.renderer = {klass: THREE.CSS3DRenderer};
 var three = THREE.Bootstrap(options);
+
+// Get the origin
 var eyeOrigin = three.argon.objectFromEntity(context.eyeOrigin);
+
+// Add the root object
 var root = new THREE.Object3D();
 
+// Create a vetor for helix positioning
 var vector = new THREE.Vector3(0, 0, 0);
 
+// Add all images to the root
 for (var i = 0; i < images.length; i++) {
   addPlane(images[i]);
 }
 
+// Add root to the scene
 eyeOrigin.add(root);
 
+/**
+ * Adds a plane with an image mapped onto it
+ */
 function addPlane(url) {
   var ratio = Math.random() + 0.5;
 
@@ -67,6 +79,9 @@ function addPlane(url) {
   root.add(object);
 }
 
+/*+
+ * Positions images in space around root
+ */
 function positionImage(object) {
   var phi = getRandomInt(1, 30) * 0.175 + Math.PI;
 
@@ -83,8 +98,10 @@ function positionImage(object) {
   object.updateMatrix();
 }
 
-// Returns a random integer between min (included) and max (excluded)
-// Using Math.round() will give you a non-uniform distribution!
+/**
+ * Returns a random integer between min (included) and max (excluded)
+ * Using Math.round() will give you a non-uniform distribution!
+ */
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
