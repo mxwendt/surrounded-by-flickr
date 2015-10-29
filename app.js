@@ -36,22 +36,11 @@ function addPlane(url) {
   element.style.width = ratio * 160 + 'px';
   element.style.height = ratio * 90 + 'px';
   element.style.backgroundImage = 'url(images/' + url + ')';
-  element.style.opacity = 1;
 
   var object = new THREE.CSS3DObject(element);
   object.matrixAutoUpdate = false;
 
-  var phi = getRandomInt(1, 30) * 0.175 + Math.PI;
-
-  object.position.x = 900 * Math.sin( phi * (-1) );
-  object.position.y = 0;
-  object.position.z = 900 * Math.cos( phi * (-1) );
-
-  vector.x = object.position.x * 2 * (-1);
-  vector.y = object.position.y * (-1);
-  vector.z = object.position.z * 2 * (-1);
-
-  object.lookAt(vector);
+  positionImage();
 
   root.add(object);
 
@@ -65,6 +54,20 @@ function animate(object) {
     object.updateMatrix();
     animate(object);
   }, 1000);
+}
+
+function positionImage(object) {
+  var phi = getRandomInt(1, 30) * 0.175 + Math.PI;
+
+  object.position.x = 900 * Math.sin( phi * (-1) );
+  object.position.y = 0;
+  object.position.z = 900 * Math.cos( phi * (-1) );
+
+  vector.x = object.position.x * 2 * (-1);
+  vector.y = object.position.y * (-1);
+  vector.z = object.position.z * 2 * (-1);
+
+  object.lookAt(vector);
 }
 
 // Returns a random integer between min (included) and max (excluded)
