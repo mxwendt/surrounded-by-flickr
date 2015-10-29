@@ -33,7 +33,7 @@ function addPlane() {
   var phi = getRandomInt(1, 30) * 0.175 + Math.PI;
 
   object.position.x = 900 * Math.sin( phi * (-1) );
-  object.position.y = (i * 8) + 450 * (-1);
+  object.position.y = 0
   object.position.z = 900 * Math.cos( phi * (-1) );
 
   vector.x = object.position.x * 2 * (-1);
