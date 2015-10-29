@@ -21,9 +21,9 @@ for (var i = 0; i < 20; i++) {
 
 eyeOrigin.add(root);
 
-var vector = new THREE.Vector3(0, 0, 0);
-
 function addPlane() {
+  var vector = new THREE.Vector3(0, 0, 0);
+
   var element = document.createElement('div');
   element.className = 'plane';
 
