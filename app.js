@@ -40,7 +40,7 @@ function addPlane(url) {
   var object = new THREE.CSS3DObject(element);
   object.matrixAutoUpdate = false;
 
-  positionImage();
+  positionImage(object);
 
   root.add(object);
 
@@ -49,7 +49,7 @@ function addPlane(url) {
 
 function animate(object) {
   window.setInterval(function() {
-    object.updateMatrix();
+    positionImage(object);
     animate(object);
   }, 1000);
 }
