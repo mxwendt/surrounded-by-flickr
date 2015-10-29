@@ -23,7 +23,9 @@ var root = new THREE.Object3D();
 var vector = new THREE.Vector3(0, 0, 0);
 
 for (var i = 0; i < images.length; i++) {
-  addPlane(images[i]);
+  window.setInterval(function() {
+    addPlane(images[i]);
+  }, i * 100);
 }
 
 eyeOrigin.add(root);
@@ -51,7 +53,7 @@ function animate(object) {
   window.setInterval(function() {
     positionImage(object);
     animate(object);
-  }, 1000);
+  }, 3000);
 }
 
 function positionImage(object) {
