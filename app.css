@@ -15,3 +15,23 @@ body {
 button {
   background-color: green;
 }
+
+.searchbox {
+  position: absolute;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#search {
+  width: 80%;
+  display: inline-block;
+}
+
+#searchbutton {
+  width: 15%;
+  display: inline-block;
+}
