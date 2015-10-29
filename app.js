@@ -29,13 +29,14 @@ for (var i = 0; i < images.length; i++) {
 eyeOrigin.add(root);
 
 function addPlane(url) {
+  var ratio = Math.random();
+
   var element = document.createElement('div');
   element.className = 'plane';
-
-  var ratio = Math.random();
   element.style.width = ratio * 160 + 'px';
   element.style.height = ratio * 90 + 'px';
   element.style.backgroundImage = 'url(images/' + url + ')';
+  element.style.opacity = 1;
 
   var object = new THREE.CSS3DObject(element);
   object.matrixAutoUpdate = false;
@@ -43,7 +44,7 @@ function addPlane(url) {
   var phi = getRandomInt(1, 30) * 0.175 + Math.PI;
 
   object.position.x = 900 * Math.sin( phi * (-1) );
-  object.position.y = 0
+  object.position.y = 0;
   object.position.z = 900 * Math.cos( phi * (-1) );
 
   vector.x = object.position.x * 2 * (-1);
@@ -54,7 +55,16 @@ function addPlane(url) {
 
   root.add(object);
 
+  // animate(object);
+
   object.updateMatrix();
+}
+
+function animate(object) {
+  window.setInterval(function() {
+    object.updateMatrix();
+    animate(object);
+  }, 1000);
 }
 
 // Returns a random integer between min (included) and max (excluded)
